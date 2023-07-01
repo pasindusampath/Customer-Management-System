@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet(name = "customerManage",urlPatterns = "/customer")
 public class CustomerServlet extends HttpServlet{
@@ -33,7 +34,9 @@ public class CustomerServlet extends HttpServlet{
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("(do) not Implemented yet");
+        List<CustomerDTO> all = service.getAll();
+        req.setAttribute("customerList",all);
+        getServletContext().getRequestDispatcher("/viewAllCustomer.jsp").forward(req,resp);
     }
 
     @Override

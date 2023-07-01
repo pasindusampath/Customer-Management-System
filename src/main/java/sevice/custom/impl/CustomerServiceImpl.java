@@ -9,6 +9,9 @@ import repo.custom.CustomerRepo;
 import util.Converter;
 import util.RepoFactory;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CustomerServiceImpl implements CustomerService {
 
     private FactoryConfiguration factory = FactoryConfiguration.getInstance();
@@ -34,6 +37,21 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public CustomerDTO search(String s) {
+        return null;
+    }
+
+    @Override
+    public List<CustomerDTO> getAll() {
+        try(Session session = factory.getSession()) {
+            List<Customer> all = repo.getAll(session);
+            List<CustomerDTO> list = new ArrayList<>();
+            for (Customer ob : all){
+                list.add(Converter.toCustomerDTO(ob));
+            }
+            return list;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         return null;
     }
 

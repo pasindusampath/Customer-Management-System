@@ -2,7 +2,10 @@ package repo.custom.impl;
 
 import entity.custom.Customer;
 import org.hibernate.Session;
+import org.hibernate.query.Query;
 import repo.custom.CustomerRepo;
+
+import java.util.List;
 
 
 public class CustomerRepoImpl implements CustomerRepo {
@@ -22,6 +25,13 @@ public class CustomerRepoImpl implements CustomerRepo {
     @Override
     public Customer search(String s, Session session) {
         return session.get(Customer.class, s);
+    }
+
+    @Override
+    public List<Customer> getAll(Session session) {
+        // return session.createQuery("FROM Customer",List<Customer>.class);
+        Query<Customer> query = session.createQuery("FROM Customer", Customer.class);
+        return query.list();
     }
 
     @Override

@@ -57,6 +57,7 @@
     </tbody>
 </table>
 <form action="customer" method="GET">
+    <input checked name="type-get" type="radio" value="all">
     <button type="submit">Make GET Request</button>
 </form>
 <script>

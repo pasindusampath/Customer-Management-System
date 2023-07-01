@@ -25,7 +25,7 @@ public class CustomerServlet extends HttpServlet{
         String contact = req.getParameter("contact");
         String address = req.getParameter("address");
         String gmail = req.getParameter("gmail");
-        String gender = req.getParameter("gmail");
+        String gender = req.getParameter("gender");
         CustomerDTO customer = new CustomerDTO(0, name, contact, address, gmail, gender);
         CustomerDTO add = service.add(customer);
         req.setAttribute(String.valueOf(add.getId()),"id");
@@ -34,9 +34,19 @@ public class CustomerServlet extends HttpServlet{
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<CustomerDTO> all = service.getAll();
-        req.setAttribute("customerList",all);
-        getServletContext().getRequestDispatcher("/viewAllCustomer.jsp").forward(req,resp);
+        String typ = req.getParameter("type-get");
+        if(typ.equals("all")){
+            List<CustomerDTO> all = service.getAll();
+            req.setAttribute("customerList",all);
+            getServletContext().getRequestDispatcher("/viewAllCustomer.jsp").forward(req,resp);
+        }
+        if(typ.equals("single")){
+            String id = req.getParameter("id");
+            CustomerDTO search = service.search(id);
+            req.setAttribute("customer",search);
+            getServletContext().getRequestDispatcher("/viewCustomer.jsp").forward(req,resp);
+        }
+
     }
 
     @Override

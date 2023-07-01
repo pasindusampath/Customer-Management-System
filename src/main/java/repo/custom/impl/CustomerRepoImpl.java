@@ -24,7 +24,7 @@ public class CustomerRepoImpl implements CustomerRepo {
 
     @Override
     public Customer search(String s, Session session) {
-        return session.get(Customer.class, s);
+        return session.get(Customer.class, Integer.parseInt(s));
     }
 
     @Override

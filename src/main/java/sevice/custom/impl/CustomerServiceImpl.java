@@ -37,6 +37,16 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public CustomerDTO search(String s) {
+        try(Session session= factory.getSession()) {
+            Customer search = repo.search(s, session);
+            if(search==null){
+                return null;
+            }
+            CustomerDTO customerDTO = Converter.toCustomerDTO(search);
+            return customerDTO;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         return null;
     }
 

@@ -35,7 +35,7 @@
     <div><a href="add_customer.jsp"><button>Add Customer</button></a></div>
     <div><a ><button>Delete Customer</button></a></div>
     <div><a><button>Update Customer</button></a></div>
-    <div><a><button>View Customer</button></a></div>
+    <div><a href="viewCustomer.jsp"><button>View Customer</button></a></div>
     <div><a href="viewAllCustomer.jsp"><button>View All Customer</button></a></div>
 </div>
 </body>

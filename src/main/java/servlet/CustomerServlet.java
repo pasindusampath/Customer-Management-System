@@ -1,4 +1,4 @@
-package controller;
+package servlet;
 
 import dto.custom.CustomerDTO;
 import sevice.custom.CustomerService;
@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet(name = "customerManage",urlPatterns = "/customer")
-public class ManageCustomer extends HttpServlet{
+public class CustomerServlet extends HttpServlet{
     CustomerService service;
     public void init(){
         service = ServiceFactory.getInstance().getService(ServiceFactory.ServiceType.CUSTOMER);

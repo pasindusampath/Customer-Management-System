@@ -1,5 +1,6 @@
 package sevice.custom.impl;
 
+import org.hibernate.Transaction;
 import sevice.custom.CustomerService;
 import db.FactoryConfiguration;
 import dto.custom.CustomerDTO;
@@ -32,6 +33,18 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public CustomerDTO update(CustomerDTO customerDTO) {
+        Transaction transaction = null;
+        try(Session session = factory.getSession()) {
+             transaction= session.beginTransaction();
+            Customer customer = Converter.toCustomer(customerDTO);
+            Customer update = repo.update(customer, session);
+            transaction.commit();
+            return Converter.toCustomerDTO(update);
+        }catch (Throwable e){
+            if(transaction!=null)
+            transaction.rollback();
+            e.printStackTrace();
+        }
         return null;
     }
 

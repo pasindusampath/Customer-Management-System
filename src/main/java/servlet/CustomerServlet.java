@@ -54,6 +54,10 @@ public class CustomerServlet extends HttpServlet{
         if(typ.equals("up")){
             String id = req.getParameter("id");
             CustomerDTO search = service.search(id);
+            if(search==null) {
+                resp.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+                return;
+            }
             String s = convertCustomerToJson(search);
             PrintWriter out = resp.getWriter();
             out.write(s);
@@ -89,7 +93,13 @@ public class CustomerServlet extends HttpServlet{
 
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("(delete) not Implemented yet");
+        String id = req.getParameter("id");
+        boolean delete = service.delete(id);
+        if(delete){
+            resp.setStatus(HttpServletResponse.SC_OK);
+        }else {
+            resp.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+        }
     }
 
     private String convertCustomerToJson(CustomerDTO customer) {

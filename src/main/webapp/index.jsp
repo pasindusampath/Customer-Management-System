@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Customer Management</title>
     <style>
         .main{
             display: flex;
@@ -33,7 +33,7 @@
 </div>
 <div class="direction-handle">
     <div><a href="add_customer.jsp"><button>Add Customer</button></a></div>
-    <div><a ><button>Delete Customer</button></a></div>
+    <div><a href="deleteCustomer.jsp"><button>Delete Customer</button></a></div>
     <div><a href="updateCustomer.jsp"><button>Update Customer</button></a></div>
     <div><a href="viewCustomer.jsp"><button>View Customer</button></a></div>
     <div><a href="viewAllCustomer.jsp"><button>View All Customer</button></a></div>

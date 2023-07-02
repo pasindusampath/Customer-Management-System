@@ -10,5 +10,5 @@ public interface CrudService<T extends SuperDto,ID extends Serializable> extends
     T update(T t);
     T search(ID id);
     List<T> getAll();
-    boolean delete(T t);
+    boolean delete(ID id);
 }

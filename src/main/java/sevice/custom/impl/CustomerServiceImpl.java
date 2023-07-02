@@ -79,7 +79,18 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public boolean delete(CustomerDTO customerDTO) {
+    public boolean delete(String id) {
+        Session session = factory.getSession();
+        Transaction transaction = session.beginTransaction();
+        try (session) {
+            Customer search = repo.search(id, session);
+            repo.delete(search, session);
+            transaction.commit();
+            return true;
+        } catch (Throwable e) {
+            e.printStackTrace();
+            transaction.rollback();
+        }
         return false;
     }
 }

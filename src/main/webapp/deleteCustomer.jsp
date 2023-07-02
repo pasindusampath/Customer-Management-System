@@ -9,7 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Update Customer</title>
+    <title>Delete Customer</title>
     <style>
         .main{
             display: flex;
@@ -78,7 +78,7 @@
             <button onclick="getData()">SEARCH</button>
         </div>
         <div>
-            <button onclick="update()">UPDATE</button>
+            <button onclick="deleteS()">DELETE</button>
         </div>
     </div>
 
@@ -108,21 +108,15 @@
                 $j('.gen').eq(1).prop('checked','true');
             }
         });
+        console.log("Executed success");
     }
-    function update(){
+    function deleteS(){
         let id = $j('#id').val();
-        let name = $j('#name').val();
-        let contact = $j('#contact').val();
-        let address = $j('#address').val();
-        let gmail = $j('#gmail').val();
-        let gender = $j('.gen:checked').eq(0).val();
+        let temp = "http://localhost:8080/customer?id="+id;
 
-        let temp = "http://localhost:8080/customer?id="+id+"&name="+name+"&contact="+contact+"&address="+
-            address+"&gmail="+gmail+"&gender="+gender;
-
-        fetch(temp,{method:'PUT'}).then(function (response){
+        fetch(temp,{method:'DELETE'}).then(function (response){
             if(response.ok){
-               alert('update Success');
+               alert('DELETE Success');
             }else {
                 alert('something went wrong');
             }

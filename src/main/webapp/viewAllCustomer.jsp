@@ -9,7 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>View All Customer</title>
     <style>
         table{
             width: 80vw;
@@ -58,22 +58,10 @@
 </table>
 <form action="customer" method="GET">
     <input checked name="type-get" type="radio" value="all">
-    <button type="submit">Make GET Request</button>
+    <button type="submit">View All</button>
 </form>
 <script>
-    /*function makeGetRequest() {
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                var response = this.responseText;
-                //console.log(response)
-                // Process the response as needed
-            }
-        };
-        xhttp.open("GET", "customer", true);
-        xhttp.send();
-    }
-    makeGetRequest()*/
+
 </script>
 </body>
 </html>

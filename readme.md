@@ -2,7 +2,9 @@
 
 Used Languages
    >JAVA
+   >
    >JAVA SCRIPT
+   >
    >HTML
 
 Used Framework to handle database

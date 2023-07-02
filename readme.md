@@ -1,10 +1,10 @@
 Used Languages
-   ->JAVA
-   ->JAVA SCRIPT
-   ->HTML
+   >JAVA
+   >JAVA SCRIPT
+   >HTML
 
 Used Framework to handle database
-  ->Hibernate
+  >Hibernate
 
 
 Project Contains Full Customer Manage System Including Basic Crud Operations

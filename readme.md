@@ -22,7 +22,13 @@ If You are trying to configure this project on your pc Change database configura
 Build this with maven build tool 
 Run Configure 
 >TomCat Server Local > Deployment > Add Customer-Manage-War Exploded
->Change Application Context only it should contain "/" dont use Double Quotation marks
+>
+>You Shold Install Apache Tomcat Server To Run This Program
+>
+>Configure Server
+>
+>Change Application Context (only it should contain "/" dont use Double Quotation marks)
+>
 >then ok and run
 >
 
